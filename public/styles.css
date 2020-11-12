@@ -1,0 +1,29 @@
+body {
+  font-family: Verdana, sans-serif;
+  padding-top: 20px;
+  background: lightgoldenrodyellow;
+}
+
+table {
+  text-align: left;
+}
+
+#container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+input {
+  margin: 10px;
+}
+
+img {
+  border: 1px solid black;
+  margin-top: 20px;
+  width: 400px;
+}
+
+form {
+  vertical-align: middle;
+}

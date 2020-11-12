@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it express</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+  <div id="container">
+    <a href="/">Back to List</a>
+    <form action="/save" method="POST">
+      <input name="title" placeholder="Title"><br>
+      <input name="submittedBy" placeholder="Submitted By"><br>
+      <input name="image" size="50" placeholder="Image URL"><br>
+      Is Spicy:
+      <input type="checkbox" name="isSpicy"><br>
+      <input type="submit">
+    </form>
+    <a target="_new" href="https://knowyourmeme.com/memes"><strong>Some memes!</strong></a><br>Click into the full image, then right click and "copy image address", be sure it ends with .jpg or .png
+
+  </div>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

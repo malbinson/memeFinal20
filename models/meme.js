@@ -9,7 +9,8 @@ var memeSchema = new Schema({
   image: String,
   isSpicy: Boolean,
   isActive: Boolean,
-  comments: [ Comment ]
+  comments: [ Comment ],
+  scoreAverage: Number
 });
 
 //attach schema to model

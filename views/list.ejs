@@ -16,6 +16,7 @@
         <th>Title</th>
         <th>Submitted By</th>
         <th>Is Spicy</th>
+        <th>Score</th>
       </tr>
 
       <% for(var i = 0; i < memes.length; i++) { %>
@@ -23,6 +24,7 @@
         <td><a href="/detail/<%= memes[i]._id %>"><%= memes[i].title %></a></td>
         <td><%= memes[i].submittedBy %></td>
         <td><%= memes[i].isSpicy %></td>
+        <td><%= memes[i].scoreAverage %></td>
       </tr>      
       <% } %>
 

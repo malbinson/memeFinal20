@@ -12,12 +12,13 @@ app.use(express.static("public"))
 var Meme = require('./models/meme')
 var Comment = require('./models/comment')
 
-mongoose.connect("mongodb+srv://malbinson:berkeley01@cluster0.cvp0r.mongodb.net/hl_2020?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-  console.log("db connected")
-})
+/************************************ 
+paste the DB connect string back here
+*************************************/
 
 app.get("/", (req,res) => {
   Meme.find({isActive:true},(err,memes) => {
+    //memes = sortListByScore(memes)
     res.render("list.ejs", {memes:memes})
   })
 })
@@ -33,7 +34,8 @@ app.post("/save", (req,res) => {
     submittedBy:r.submittedBy,
     image:r.image,
     isSpicy:r.isSpicy == "on",
-    isActive: true
+    isActive: true,
+    scoreAverage: 0
   }
   var d = new Meme(o);
   d.save((err,meme) => {
@@ -80,15 +82,23 @@ app.post("/comment/:id", (req,res) => {
     score:req.body.score,
     description: convertScore(req.body.score)  
   }
-  console.log(c)
   var comment = new Comment(c)
   Meme.findById(id,(err,meme) => {
     meme.comments.push(comment);
     meme.save((err,meme) => {
-      res.render("detail.ejs",{meme:meme});
+      meme.scoreAverage = averageScore(meme)
+      meme.save((err,meme) => {
+        res.render("detail.ejs",{meme:meme});        
+      })
     })
   })
 })
+
+function averageScore(meme) {
+  //make this return the actual 
+  //average of the scores
+  return 3;
+}
 
 function convertScore(score) {
   switch(score) {
